@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    ROOT: INFO
+    br.mil.eb.cds.sisgcorp.registro: INFO
+    io.github.jhipster: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+spring:
+  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://${DATABASE_URL:localhost}:${DATABASE_PORT:15432}/${DATABASE_DBNAME:postgres} # jdbc:oracle:thin:@localhost:1521:xe # jdbc:oracle:thin:@oracle.basis.com.br:1521:orcltst
+    username: postgres # system
+    password: 123456 # oracle
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect # org.hibernate.dialect.Oracle10gDialect
+    database: postgresql # ORACLE
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
